@@ -8,7 +8,6 @@ namespace Core.FSM
     {
         [SerializeField] private Transform player;
         private StateMachine stateMachine;
-        private bool isChasing;
         private void Awake()
         {
             stateMachine = new StateMachine();
