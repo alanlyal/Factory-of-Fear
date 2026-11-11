@@ -5,20 +5,21 @@ public class ZombieSystem : MonoBehaviour
     [Header("Zombie settings")]
     [SerializeField] private int hp = 100;
     [SerializeField] private int shot = 10;
-    [Header("Zombie points settings")]
+    [Header("Zombie score settings")]
     [SerializeField] private int perShot = 10;
     [SerializeField] private int perkill = 200;
     [Header("UI")]
-    [SerializeField] private UIManager uiPoints;
+    [SerializeField] private UIManager UICanvas;
     private void OnCollisionEnter(Collision bullet)
     {
         if (bullet.gameObject.CompareTag("Bullet"))
         {
             hp -= shot;
-            uiPoints.givePoints(perShot);
+            UICanvas.givePoints(perShot);
+
             if (hp <= 0)
             {
-                uiPoints.givePoints(perkill);
+                UICanvas.givePoints(perkill);
                 Destroy(gameObject);
             }
         }
