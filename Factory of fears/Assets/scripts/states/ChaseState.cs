@@ -11,7 +11,7 @@ namespace Core.FSM
         }
         public override void Enter()
         {
-           meshRenderer.material.color = Color.red;
+            meshRenderer.material.color = Color.red;
             agent.isStopped = false;
         }
         public override void Update()
