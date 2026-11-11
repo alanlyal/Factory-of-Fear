@@ -3707,7 +3707,7 @@ MonoBehaviour:
   shot: 10
   perShot: 10
   perkill: 100
-  uiPoints: {fileID: 0}
+  uiPoints: {fileID: 1681947468}
 --- !u!1 &1927188386
 GameObject:
   m_ObjectHideFlags: 0
