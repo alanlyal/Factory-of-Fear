@@ -2825,6 +2825,7 @@ GameObject:
   - component: {fileID: 1681947466}
   - component: {fileID: 1681947465}
   - component: {fileID: 1681947464}
+  - component: {fileID: 1681947468}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2916,6 +2917,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1681947468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681947463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8def1e4102c0bc4c9f3fe18ea968550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Core::UIManager
+  StartingPoints: 0
+  pointsTxt: {fileID: 53945846}
 --- !u!1 &1711072711
 GameObject:
   m_ObjectHideFlags: 0
@@ -3688,11 +3703,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d34276abc2605448db557dd0bd4b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Core::ZombieHealth
-  maxHealth: 100
-  damage: 10
-  pointsPerShot: 10
-  pointsPerkill: 100
-  uiManager: {fileID: 0}
+  hp: 100
+  shot: 10
+  perShot: 10
+  perkill: 100
+  uiPoints: {fileID: 0}
 --- !u!1 &1927188386
 GameObject:
   m_ObjectHideFlags: 0
