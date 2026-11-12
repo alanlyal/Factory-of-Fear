@@ -10,6 +10,8 @@ public class ZombieSystem : MonoBehaviour
     [SerializeField] private int perkill = 200;
     [Header("UI")]
     [SerializeField] private UIManager UICanvas;
+    [SerializeField] private ZombieSpawner zombieSpawner;
+    private bool dead = false;
     private void OnCollisionEnter(Collision bullet)
     {
         if (bullet.gameObject.CompareTag("Bullet"))
@@ -17,10 +19,16 @@ public class ZombieSystem : MonoBehaviour
             hp -= shot;
             UICanvas.givePoints(perShot);
 
-            if (hp <= 0)
+            if (hp <= 0 && dead == false)
             {
+                dead = true;
+                zombieSpawner.zombieKilled++;
                 UICanvas.givePoints(perkill);
                 Destroy(gameObject);
+                if (zombieSpawner.zombieKilled == zombieSpawner.zombieCap)
+                {
+                    UICanvas.ClearWave();
+                }
             }
         }
     }
