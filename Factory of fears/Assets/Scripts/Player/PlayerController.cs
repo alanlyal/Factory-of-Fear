@@ -172,5 +172,17 @@ public class PlayerController : MonoBehaviour
 
     //For Health PickUp
     public void Heal(int amount)
-    {}
+    {
+        if (dead) { return; }
+
+        health += amount;
+        health = Mathf.Clamp(health, 0, maxHealth);
+
+        UpdateUI();
+
+        if (health <= 0)
+        {
+            PlayerDead();
+        }
+    }
 }
