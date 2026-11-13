@@ -188,7 +188,7 @@ MonoBehaviour:
   currentWeapon: {fileID: 1477674233026776995}
   weaponHolder: {fileID: 393751015182736800}
   shootAction: {fileID: -3922098177522759020, guid: 8a7eb90658a274d428077daba185d706, type: 3}
-  reloadAction: {fileID: -8803204475552946720, guid: d4580ddb403296c4e8150653f661069e, type: 3}
+  reloadAction: {fileID: 1281485329278870528, guid: 8a7eb90658a274d428077daba185d706, type: 3}
 --- !u!1 &2761998234074982913
 GameObject:
   m_ObjectHideFlags: 0
