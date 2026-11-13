@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class ZombieSystem : EnemyBase
@@ -5,7 +6,12 @@ public class ZombieSystem : EnemyBase
     [Header("Zombie settings")]
     [SerializeField] private int shot = 10;
     private bool dead = false;
-    [SerializeField] private EnemySpawner enemySpawner;
+    private WaveSystem waveSystem;
+    private void Awake()
+    {
+        UICanvas = FindAnyObjectByType<UIManager>();
+        waveSystem = FindAnyObjectByType<WaveSystem>();
+    }
     private void OnCollisionEnter(Collision collision)
     {
         //Take Damage
@@ -15,13 +21,7 @@ public class ZombieSystem : EnemyBase
             if (hp <= 0 && dead == false)
             {
                 dead = true;
-                enemySpawner.zombieKilled++;
-                UICanvas.givePoints(perKill);
-                Destroy(gameObject);
-                if (enemySpawner.zombieKilled == enemySpawner.zombieCap)
-                {
-                    UICanvas.ClearWave();
-                }
+                waveSystem.EnemyKilled();
             }
 
         }

@@ -10,6 +10,7 @@ namespace Core.FSM
         private StateMachine stateMachine;
         private void Awake()
         {
+            player = GameObject.FindWithTag("Player").transform;
             stateMachine = new StateMachine();
             MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
