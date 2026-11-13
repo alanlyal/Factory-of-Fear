@@ -8,10 +8,16 @@ public class UIManager : MonoBehaviour
     [Header("UI elements")]
     [SerializeField] private TMP_Text pointsTxt;
     [SerializeField] private TMP_Text TaskTxt;
-  
+    [SerializeField] private TMP_Text AmmoTxt;
+
+    private Weapon weapon;
+    private void Awake()
+    {
+        weapon = FindAnyObjectByType<Weapon>();
+    }
+
     public void Start()
     {
-        pointsTxt.text = "score: 0";
         TaskTxt.gameObject.SetActive(false);
     }
     public void givePoints(int score)
@@ -23,4 +29,10 @@ public class UIManager : MonoBehaviour
     {
         TaskTxt.gameObject.SetActive(true);
     }
+    public void GetAmmo(int currentAmmo, int reserves)
+    {
+       
+        AmmoTxt.text = currentAmmo.ToString() + " | " + reserves.ToString();
+    }
+   
 }

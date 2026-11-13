@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Codice.Client.Common.Connection.AskCredentialsToUser;
 
 public class Weapon : MonoBehaviour
 {
@@ -11,18 +12,25 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float spread = 0f; //0 is perfectly straight, 0.1 is a wide shotgun
 
     [Header("Ammo")]
-    [SerializeField] private int magazineSize = 12;
-    [SerializeField] private int ammo = 12;
-    [SerializeField] private int reserveAmmo = 60;
+    [SerializeField] public int magazineSize = 12;
+    [SerializeField] public int ammo = 12;
+    [SerializeField] public int reserveAmmo = 60;
     [SerializeField] private float reloadTime = 1.5f;
 
+    private UIManager uiCanvas;
     private float fireTimer;
     private float reloadTimer;
     private bool reloading = false;
 
+    private void Awake()
+    {
+
+        uiCanvas = FindAnyObjectByType<UIManager>();
+    }
     private void Start()
     {
         ammo = magazineSize;
+        uiCanvas.GetAmmo(ammo, reserveAmmo);
     }
 
     private void Update()
@@ -59,6 +67,7 @@ public class Weapon : MonoBehaviour
 
         ammo--;
         fireTimer = fireRate;
+        uiCanvas.GetAmmo(ammo, reserveAmmo);
     }
 
     private void SpawnBullet()
@@ -96,10 +105,12 @@ public class Weapon : MonoBehaviour
         ammo += needed;
         reserveAmmo -= needed;
         reloading = false;
+        uiCanvas.GetAmmo(ammo, reserveAmmo);
     }
 
     public void AddAmmo(int amount)
     {
         reserveAmmo += amount;
+        uiCanvas.GetAmmo(ammo, reserveAmmo);
     }
 }
