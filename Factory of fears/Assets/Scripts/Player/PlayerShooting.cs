@@ -52,4 +52,15 @@ public class PlayerShooting : MonoBehaviour
         GameObject newWeapon = Instantiate(weaponPrefab, weaponHolder);
         currentWeapon = newWeapon.GetComponent<Weapon>();
     }
+
+    // used by the ammo pickups when added,. adds ammo to held weapon.
+    public void AddAmmo(int amount)
+    {
+        if (currentWeapon == null)
+        {
+            return;
+        }
+
+        currentWeapon.AddAmmo(amount);
+    }
 }

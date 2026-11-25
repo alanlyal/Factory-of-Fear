@@ -17,6 +17,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] public int reserveAmmo = 60;
     [SerializeField] private float reloadTime = 1.5f;
 
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+
     private UIManager uiCanvas;
     private float fireTimer;
     private float reloadTimer;
@@ -90,6 +93,19 @@ public class Weapon : MonoBehaviour
 
         reloading = true;
         reloadTimer = reloadTime;
+
+        if (animator != null)
+        {
+            if (ammo > 0)
+            {
+                animator.Play("Reload", 0, 0f);
+            }
+            else
+            {
+                animator.Play("Reload Empty", 0, 0f);
+            }
+        }
+
         Debug.Log("Reloading");
     }
 
